@@ -1,0 +1,23 @@
+name: "evcc (Raedian Neo)"
+description: "evcc EV Charge Controller - modified for Raedian Neo OCPP compatibility"
+version: "1.0.0"
+slug: "evcc_raedian"
+url: "https://github.com/CptSandwich/evcc"
+init: false
+
+arch:
+  - amd64
+  - aarch64
+
+ports:
+  7070/tcp: 7070
+  8887/tcp: 8887
+ports_description:
+  7070/tcp: "evcc Web UI"
+  8887/tcp: "OCPP WebSocket"
+
+map:
+  - config:rw
+
+options: {}
+schema: {}
