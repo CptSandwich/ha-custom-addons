@@ -5,7 +5,8 @@ slug: "evcc_raedian"
 url: "https://github.com/CptSandwich/evcc"
 init: false
 
-image: "ghcr.io/cptsandwich/evcc-hassio:latest"
+image: "ghcr.io/cptsandwich/evcc-hassio"
+
 
 arch:
   - amd64
