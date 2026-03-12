@@ -1,26 +1,51 @@
 name: "evcc (Raedian Neo)"
+version: "0.302.1"
+slug: evcc_raedian
 description: "evcc EV Charge Controller - modified for Raedian Neo OCPP compatibility"
-version: "1.0.0"
-slug: "evcc_raedian"
 url: "https://github.com/CptSandwich/evcc"
-init: false
-
-image: "ghcr.io/cptsandwich/evcc-hassio"
-
-
 arch:
   - amd64
   - aarch64
-
+startup: application
+boot: auto
+stage: stable
+init: false
+panel_icon: mdi:ev-station
+panel_admin: false
+ingress: true
+ingress_port: 7070
+watchdog: http://[HOST]:[PORT:7070]
+webui: http://[HOST]:[PORT:7070]/
+host_network: true
+image: "ghcr.io/cptsandwich/evcc-hassio"
+options:
+  config_file: /config/evcc.yaml
+  sqlite_file: /data/evcc.db
+schema:
+  config_file: str
+  sqlite_file: str
+  EVOPT_URI: url?
+  SEMP_BASE_URL: url?
+map:
+  - type: addon_config
+    read_only: false
+  - type: homeassistant_config
+    read_only: false
 ports:
   7070/tcp: 7070
   8887/tcp: 8887
+  4712/tcp: 4712
+  5200/tcp: 5200
+  5353/udp: 5353
+  7090/udp: 7090
+  8899/udp: 8899
+  9522/udp: 9522
 ports_description:
   7070/tcp: "evcc Web UI"
   8887/tcp: "OCPP WebSocket"
-
-map:
-  - config:rw
-
-options: {}
-schema: {}
+  4712/tcp: "EEBUS"
+  5200/tcp: "Modbus Proxy"
+  5353/udp: "Multicast DNS (mDNS)"
+  7090/udp: "Keba"
+  8899/udp: "Modbus UDP"
+  9522/udp: "SMA Speedwire Multicast"
