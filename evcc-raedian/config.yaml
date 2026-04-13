@@ -1,5 +1,5 @@
 name: "evcc (Raedian Neo)"
-version: "0.304.2"
+version: "0.304.3"
 slug: evcc_raedian
 description: "evcc EV Charge Controller - modified for Raedian Neo OCPP compatibility"
 url: "https://github.com/CptSandwich/evcc"
