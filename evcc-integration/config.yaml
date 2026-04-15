@@ -1,5 +1,5 @@
 name: "evcc (Integration)"
-version: "0.304.2"
+version: "0.304.3"
 slug: evcc_integration
 description: "evcc EV Charge Controller - Raedian Neo OCPP + effective price cost optimisation"
 url: "https://github.com/CptSandwich/evcc"
